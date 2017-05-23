@@ -1,0 +1,21 @@
+/afs/cats.ucsc.edu/users/l/scho29/cs11/lab2
+
+Access list for public is
+Normal rights:
+  system:operator rlidwk
+  system:authuser rlid
+  system:anyuser rl
+  scho29 rlidwka
+
+Access list for private is
+Normal rights:
+  scho29 rlidwka
+
+total 7
+-rw-r--r--. 1 scho29 users  446 Jan 21 17:53 HelloWorld.class
+drwxr-xr-x. 2 scho29 users 2048 Jan 21 17:45 private
+-rwx------. 1 scho29 users  193 Jan 21 17:56 prog
+drwxr-xr-x. 2 scho29 users 2048 Jan 21 17:45 public
+-rw-r--r--. 1 scho29 users  232 Jan 21 18:01 result
+
+Hello, my name is Seongwoo Choi.
