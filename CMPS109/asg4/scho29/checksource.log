@@ -1,0 +1,9 @@
+checksource: line length > 144 characters
+   file "README": 1 errors: line 11
+checksource: line length > 216 characters
+   file "README": 1 errors: line 11
+checksource: line length > 288 characters
+   file "README": 1 errors: line 11
+checksource: line length > 72 characters
+   file "README": 3 errors: lines 11, 13, 16
+checksource: TOTAL COMPLAINTS: 6

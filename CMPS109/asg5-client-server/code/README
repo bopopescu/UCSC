@@ -1,0 +1,60 @@
+README
+
+Seongwoo Choi
+scho29
+1368039
+Summer 2016
+
+asg5 - client-server
+Usage: cixd [port]
+Usage: cix [host] [port]
+
+// The following is from the pdf file that the professor provided.
+cixd
+Usage : cixd [port]
+Creates a server socket and goes into an infinite loop : When it accepts a client socket, it uses fork(2) to create a child process, which functions as the server to communicate with the client.
+The daemon listens for connections on the given port, if specified. If not, the environment variable CIX_SERVER_PORT is used to determine the port. There is no default port.
+The server is forked with an open socket communicating with the client. Its loop repeatedly reads commands and information from the client and acts on those commands, returning information back to the client. Its loop will be a receive followed by a send, responding to client requests. It exits when the client closes the socket. It does no terminal I/O except possibly for debugging purposes.
+
+cix
+Usage : cix [host] [port]
+The client interacts with the user. Commands are read from the terminal (or redirect), each of which is executed one at a time by communicating with the server. Results are then displayed at the terminal.
+The client connects to the given host, if specified. If not specified, the environ- ment variable CIX_SERVER_HOST is used as the host to connect to. If not speci- fied, localhost is used. It tries to connect to the given port, if specified. If not, the environment variable CIX_SERVER_PORT is used to determine the port. There is no default port.
+
+
+exit
+Quit the program. An end of file marker or Control/D is equivalent.
+
+get filename
+Copy the file named filename on the remote server and create or overwrite a file of the same name in the current directory.
+
+help
+A summary of available commands is printed.
+
+ls
+Causes the remote server to execute the command ls -l and prints the output to the user’s terminal.
+
+put filename
+Copies a local file into the socket and causes the remote server to create that file in its directory.
+
+rm filename
+Causes the remote server to remove the file.
+
+// Files submitted:
+Makefile
+README
+cix.cpp
+cixd.cpp
+logstream.h
+protocol.cpp
+sockets.cpp
+sockets.h
+
+
+
+
+
+
+
+
+
