@@ -1,0 +1,186 @@
+Design Document
+Seongwoo Choi
+CMPS 111 
+Winter 2017
+Assignment 1: A Simple Shell
+
+
+Purpose:
+This document is about the design of a shell program and its algorithm.
+
+
+Assumptions:
+The program will be used by a user to execute different commands from a command line interface. The input will come from the keyboard, and the output will be displayed on the console.
+
+
+Data:
+1. Flag setting structure
+   - stores which special characters were passed
+2. Path storing structure
+   - stores paths that may have been passed through CLI
+   - stores the 2nd command from a pipe
+3. getline() will store the lines of the user input. 
+
+
+Operations:
+There will be six important functions that I will use to complete this assignment: 
+
+
+Also, I will use some of the built-in C libraries to work on this. For instance, stdio.h will be used for built-in input and output of C and sys/wait.h will be used for wait functions and more. 
+
+
+1. void print_error (character *string)
+   - Description: a function that prints out an error message when a user made a command, but the shell could not understand. 
+   - Input: If a user makes a command that a shell program cannot understand, then there will be an error message. 
+   - Output: nothing
+   - Result: This will print out error when there is nothing that a Shell can do. 
+
+
+2. int special_cmd (index, arguments, special flags, paths)
+   - Description: This function checks to see if a user input has any single letter argument is a special command that a shell program must initiate. 
+   - Input: index in an array of arguments, and there is a special-flags structure
+            and a pointer to a path variable.
+   - Output: returns TRUE if the argument is a special character that I have defined on the codes. Otherwise, it will be set to false
+   - result: the program will have a record of which special character was passed
+
+
+3. int main() 
+Description: the main function of the program 
+Special command structure, paths structure and arguments
+Output: the result of such arguments
+
+
+The system calls and commands that I will use to write this program are following: 
+1. The internal shell command exit which terminates the shell
+We will use the system call: exit()
+
+
+exit(): The exit() system call terminates the calling process
+
+
+2. A command with no arguments
+We will use the system calls fork(), execvp(), exit() and wait()
+
+
+fork(): this is a system call that creates a copy of the parent process and brings that process to its child process. Also, both processes return from the system call and then it executes the next instruction. In this procedure, the system calls do not take any arguments, and it returns a negative value when the child process was not created successfully. In the other procedure, fork () returns to a zero.   
+
+
+execvp() a system call that has two arguments: one is a path, and another one is argv.
+ -The path is used for the location of the new process image, and argv is a pointer to an array of pointers to null. Those nulls are null-terminated character strings. 
+
+
+The wait() system call blocks the calling process of the path until one of its child processes exits the loop, or a signal has been received.  
+To illustrate more, if there are at least one child processes running when the system call, wait(), has been made, then, in this case, wait() has no effect.
+
+
+3. A command with arguments.
+Concepts: Command-line parameters in C language.
+Details: Argument 0 is the name of the command
+
+
+By using this, the Shell program can execute a command line such ls -l to show the list of content in a shell. 
+
+
+4. A command, with or without arguments, executed in the background using &
+We will use system calls sigset()
+sigset() is the system call that helps execute commands in the background.
+
+
+In our code, I am going to write a function called sigset_handler(signal), which does a wait(&current_status);
+
+
+In our main function we use sigset calling the sigset_handler function we
+created: sigset(SIGCHL, sigset_handler)
+
+
+5. A command with or without arguments whose output is redirected to a file
+We will use system call: dup() and close()
+Example: sort < scores
+
+
+dup() system call takes in parameters: char *path, char *mode, and FILE *stream.
+I will implement this by scanning the arguments given by a user. If a user input was a “>”, then open() system call will be used. 
+
+
+Special character, we store the path that is given and move the arguments to the
+left by one. This allows our shell to perform I/O redirection.
+Note: execvp() will not perform redirection.
+
+
+6. A command, with or without arguments, whose output is piped to the input of another command
+example: ls -l | more
+System call: pipe(), close(), and dup()
+
+
+Algorithms:
+Algorithm for print_error():
+1. If there is an argument that makes a shell to close, then print error. 
+System calls: exit() will be used to do this. 
+
+
+Algorithm for special_cmd():
+The algorithm is slightly easier if you know the concept. First 
+1. If the arguments passed will not go through a subshell
+
+
+2. Traverse through the arguments after the semicolon
+
+
+3. Copy the arguments after the semicolon and store them in another Array.
+
+
+4. If the user entered a bracket or a | for a pipe, store the path 
+
+
+5. If there is no special character that has been passed, then return the procedure to FALSE
+
+
+6. If the argument is a special character, then continue through the loop.
+
+
+7. Copy the argument to the array of arguments for child process
+
+
+8. Set a NULL at the end of child arguments for termination
+
+
+Algorithm for the entire program:
+1. Handle cd command if requested: If the user does not specify a path, we change the directory to home. Error if an invalid path is passed.
+
+
+2. Handle exit system call. 
+
+
+3. Otherwise, fork() and if in child process, handle special flag for background, calling setpgid(),
+  create a file from path provided if file not found, and redirect the output to the specified file,
+  using dup() and close(). 
+
+
+4. If there are no saved args from a semicolon command call
+
+
+5. Print prompt and get command
+
+
+6. Else there are saved arguments that need to be processed from a semicolon call.
+      
+7. If "exit" was passed, exit the program. If no argument was passed, print prompt again.
+      
+8. Parse through the arguments, trying to find out if a special the command was passed.
+      
+9. If a call was made for a subshell, call the function recursively. Upon exit, change the directory of the outer shell back if changed.
+      
+10. Else, execute command passed.
+      
+11. Reset flags and variables for a beginning of a loop.
+
+
+7. A command played into the background with &
+a. Example: awk "{print $1}" < pwds | sort –u > unique &
+b. Typing jobs will provide a list of jobs.
+c. Each job will list the process IDs (PIDs) of the processes in that job.
+d. Instead of a single wait, the command shell must check a list of jobs to see if any
+have completed.
+
+
+Note: Asked the TA if I am allowed to modify lex.l file, and the TA said okay.

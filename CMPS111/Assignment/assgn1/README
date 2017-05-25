@@ -1,0 +1,21 @@
+// Seongwoo Choi
+// scho29
+// 1368039
+// Winter 2017
+// CMPS 111
+// Darrell Long
+
+Files included:
+README
+myshell.c
+lex.l
+Makefile
+DESIGN
+
+
+To compile the program, please type 'make' and to run the program, please type './myshell'
+
+Program Description:
+		This is a simple shell program written in C language.
+
+The last part of the assignment is not complete; however, I think I know how it works.  
