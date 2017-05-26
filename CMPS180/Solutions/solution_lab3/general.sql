@@ -1,0 +1,1 @@
+ALTER TABLE Sales ALTER COLUMN unit_price SET NOT NULL;ALTER TABLE Sales ADD CONSTRAINT positive_price CHECK(unit_price > 0);ALTER TABLE Customers ALTER COLUMN name SET NOT NULL;ALTER TABLE Sales ADD CHECK(unit_price * quantity <= 1000);

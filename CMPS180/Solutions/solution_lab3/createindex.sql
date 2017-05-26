@@ -1,0 +1,1 @@
+CREATE INDEX ON Customers(name,address);/*Some students may have chosen to give a name to the index as in the example below:CREATE INDEX CustomersIndex ON Customers(name,address);*/

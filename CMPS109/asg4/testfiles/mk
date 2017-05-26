@@ -1,6 +1,0 @@
-#!/bin/sh
-# $Id: mk,v 1.2 2015-07-16 16:47:32-07 - - $
-for gd in ../.score/*.gd
-do
-   ln -s $gd
-done

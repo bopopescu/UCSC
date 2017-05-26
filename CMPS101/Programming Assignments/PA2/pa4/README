@@ -1,0 +1,14 @@
+Seongwoo Choi
+CMPS 101: Introduction to Algorithms
+Patrick Tantalo
+Summer 2015
+
+
+Graph.c ........Implementation file for Graph ADT
+Graph.h ........Specification file for Graph ADT
+List.c .........Implementation file for List ADT
+List.h .........Specification file for List ADT
+GraphTest.c ....Test harness for Graph.h
+FindPath.c .....Client program for Graph.h
+Makefile .......Compiles the above files
+README .........README

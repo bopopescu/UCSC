@@ -1,0 +1,1 @@
+CREATE VIEW unshipped_products ASSELECT name, manufacturerFROM Products P, Sales SWHERE P.product_id = S.product_id AND NOT shippedORDER BY name,manufacturer;

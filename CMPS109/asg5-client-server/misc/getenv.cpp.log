@@ -1,7 +1,0 @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting getenv.cpp
-getenv.cpp:
-     $Id: getenv.cpp,v 1.22 2015-08-06 17:38:19-07 - - $
-g++ -g -O0 -Wall -Wextra -rdynamic -std=gnu++14 getenv.cpp
-	-o getenv -lglut -lGLU -lGL -lX11 -lrt -lm
-rm -f getenv.o
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished getenv.cpp
