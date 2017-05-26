@@ -1,0 +1,128 @@
+$Id: 2016q2-soln1,v 1.2 2016-04-25 15:49:49-07 - - $
+Answers to CMPS-109 2016q1-soln1, page 1
+
+_________________________________________________________________
+Question 1. [3]
+
+class thing {           | class thing::iterator {
+   class iterator;      |    bool operator!= (const iterator&);
+   iterator begin();    |    iterator& operator++();
+   iterator end();      |    FOO& operator*();
+};                      | };
+Note: allow any type instead of FOO.  Question does not specify.
+
+_________________________________________________________________
+Question 2. [1]
+
+for (auto& p = t.begin(); p != t.end(); ++p) cout << *p << endl;
+
+_________________________________________________________________
+Question 3. [2]
+
+double ip (const vector<double>& u, const vector<double>& v) {
+   if (u.size() != v.size()) throw domain_error ("ip");
+   double s = 0;
+   for (size_t i = 0; i < u.size(); ++i) s += u[i] * v[i];
+   return s;
+}
+
+_________________________________________________________________
+Question 4(a). [1]
+
+class base {
+   public:
+      virtual size_t value() const = 0;
+};
+
+_________________________________________________________________
+Question 4(b). [1]
+
+class zero: public base {
+   public:
+      virtual size_t value() const override { return 0; }
+};
+
+_________________________________________________________________
+Question 4(c). [2]
+
+class str: public base {
+      string s;
+   public:
+      virtual size_t value() const override { return s.size(); }
+};
+
+
+Answers to CMPS-109 2016q1-soln1, page 2
+_________________________________________________________________
+Question 5. [3]
+
+void ubigint::divide_by_2() {
+   for (size_t i = 0; i < data.size() - 1; ++i) {
+      data[i] = data[i] / 2 + 5 * (data[i + 1] & 1);
+   }
+   data[data.size() - 1] /= 2;
+};
+// above uses & 1 to select odd numbers.
+// could also run the loop backwards from high end to low end
+// algorithm: divide each digit by 2.
+//            add 5 if the next higher digit is odd.
+
+_________________________________________________________________
+Question 6(a). [3]
+
+intvec& intvec::operator= (const intvec& that) {
+   if (this == &that) return *this;
+   if (data_ != nullptr) delete[] data_;
+   size_ = that.size_;
+   data_ = new int[that.size_];
+   std::copy (&that.data_[0], &that.data_[that.size_], &data_[0]);
+   return *this;
+}
+
+_________________________________________________________________
+Question 6(b). [3]
+
+intvec& intvec::operator= (intvec&& that) {
+   if (this == &that) return *this;
+   if (data_ != nullptr) delete[] data_;
+   size_ = that.size_;
+   data_ = that.data_;
+   that.size_ = 0;
+   that.data_ = nullptr;
+   return *this;
+}
+
+_________________________________________________________________
+Question 6(c). [1]
+
+intvec::~intvec() {
+   if (data_ != nullptr) delete[] data_;
+}
+
+
+Answers to CMPS-109 2016q1-soln1, page 3
+
+ 1.    (D) (&argv[1], &argv[argc])
+
+ 2.    (C) s == t and *s != *t
+
+ 3.    (A) void f (const string&);
+
+ 4.    (B) $ O ( log n ) $
+
+ 5.    (A) virtual void foo() = 0;
+
+ 6.    (C) protected
+
+ 7.    (B) i - p
+
+ 8.    (B) constexpr
+
+ 9.    (B) pair<const string, int>
+
+10.    (C) pointer
+
+11.    (D) char c {1000};
+
+12.    (C) catch (exn& e)
+

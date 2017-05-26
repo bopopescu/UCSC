@@ -1,0 +1,19 @@
+README
+
+Seongwoo Choi
+scho29
+1368309
+The Second Assignment
+Function pointers, a shell.
+
+yshell
+
+This program maintains a tree structure with a simple hierarchy, maintained by a map of functions. 
+
+The program is a simple shell program that creates and also this program manages a small, tree structure. 
+
+//Usage: 
+	"yshell"
+
+//Description
+This shell reads commands from stdin and write output to stdout, with errors being set to stderr. Each line read by the shell is parsed into words by splitting using space characters, with any number of spaces between words. There may also be leading and trailing spaces. 
