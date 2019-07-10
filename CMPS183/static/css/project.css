@@ -1,0 +1,45 @@
+
+.gsc-search-button {
+    height: 26px !important;
+    margin-top: 0 !important;
+    min-width: 13px !important;
+    padding: 5px 26px !important;
+    width: 68px !important;
+    color: green !important;
+    border-color: darkgreen !important;
+    transform: translate(0%, 6%) !important;
+}
+
+.gsc-input-box {
+    height: 30px !important;
+    font-size: 12px !important;
+    border-color: green !important;
+}
+
+.gsc-control-cse {
+    width: 50% !important;
+    transform: translate(50%, 0%);
+    border-radius: 20px !important;
+    border-color: darkgreen;
+}
+
+form.gsc-search-box {
+    padding: 4px 4px 4px 4px;
+    border-radius: 25px !important;
+    width: 100% !important;
+    border-color: darkgreen !important;
+}
+
+.gsc-results-wrapper-overlay{
+    width: 125% !important;
+    height: 750% !important;
+    transform: translate(-20%, 0%) !important;
+}
+
+.gsc-completion-container{
+    transform: translate(68.75%, -1.25%);
+    position: absolute !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}

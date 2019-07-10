@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<title>Search on UCSC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="{{=URL('static', 'css/w3.css')}}"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{=URL('static','css/project.css')}}"/>
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-navbar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <ul class="w3-navbar w3-cyan w3-card-2 w3-left-align w3-large w3-text-white">
+    <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+      <a class="w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    </li>
+
+    <li class="w3-hide-small"><a href="{{=URL('default', 'main')}}" class="w3-padding-large w3-hover-white w3-hover-text-black">Home</a></li>
+    <li class="w3-hide-small"><a href="{{=URL('default', 'search')}}" class="w3-padding-large w3-white">Search</a></li>
+    <li><a href="{{=URL('default', 'slco')}}" class="w3-padding-large w3-hover-white w3-hover-text-black">Activities</a></li>
+    <li class="w3-hide-small"><a href="{{=URL('default', 'socialconnect')}}" class="w3-padding-large w3-hover-white w3-hover-text-black">UC Social Connect</a></li>
+  </ul>
+
+<!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium">
+    <ul class="w3-navbar w3-left-align w3-large w3-black">
+      <li><a class="w3-padding-large" href="{{=URL('default', 'search')}}">Search</a></li>
+      <li><a class="w3-padding-large" href="{{=URL('default', 'slco')}}">Clubs</a></li>
+      <li><a class="w3-padding-large" href="{{=URL('default', 'socialconnect')}}">UC Social Connect</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+<!-- Header -->
+<header class="w3-container w3-green w3-center w3-padding-128">
+  <h1 class="w3-margin w3-jumbo">SEARCH</h1>
+         <gcse:search queryParameterName="search"></gcse:search>
+    <!-- Google Custom Search -->
+<!-- end GCS -->
+</header>
+
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Easy to search</h1>
+      <h5 class="w3-padding-32">Simply type anything in the search bar. <br>Get results from UCSC directly and find out what is available.  </h5>
+
+      <p class="w3-text-grey">Find what you want and what you love. You will enjoy every moment of your life.</p>
+    </div>
+
+    <div class="w3-third w3-center">
+      <i class="fa fa-search fa-5x w3-padding-64 w3-text-red"></i>
+    </div>
+  </div>
+</div>
+
+<script>
+        (function() {
+            var cx = '013328900167516678688:2zye3rzvzz4';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+        })();
+
+        function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">
+ <p>Made by <a href="http://people.ucsc.edu/~scho29" target="_blank">Seongwoo Choi</a> and
+    <a href="http://people.ucsc.edu/~eraander" target="_blank">Erik Andersen</a></p>
+    <p><a href="{{=URL('default', 'aboutus')}}" target="_blank">About Us</a></p>
+</footer>
+
+

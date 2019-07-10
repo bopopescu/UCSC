@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<title>UCSC Social</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{=URL('static', 'css/w3.css')}}"/>
+<link rel="stylesheet" href="{{=URL('static', 'css/w3-theme-blue-grey.css')}}"/>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"/>
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+</style>
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+{{if auth.user is not None:}}
+<div class="w3-top">
+ <ul class="w3-navbar w3-theme-d2 w3-left-align w3-large">
+  <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+    <a class="w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  </li>
+  <li><a href="socialconnect.html" class="w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>UC Social Connect</a></li>
+     <li class="w3-hide-small"><a href="{{=URL('default','index')}}" class="w3-padding-large w3-hover-white" title="Home"><i class="fa fa-home"></i></a>
+     <li class="w3-hide-small"><a href="{{=URL('default', 'messenger')}}" class="w3-padding-large w3-hover-white" title="Messenger"><i class="fa fa-comments-o"></i></a></li>
+     <li class="w3-hide-small"><a href="{{=URL('default', 'search')}}" class="w3-padding-large w3-hover-white" title="Search"><i class="fa fa-search"></i></a></li>
+  </li>
+  <li class="w3-hide-small">
+      <form action="" method="get" autocomplete="on">
+      </form>
+      <div class="w3-dropdown-content w3-white w3-card-4">
+      </div>
+  </li>
+  <li class="w3-hide-small w3-right w3-dropdown-hover">
+      <a href="{{=URL('default', 'profile')}}" class="w3-padding-large w3-hover-white" title="My Account"><img src="https://www.renault.co.uk/etc/designs/renault_v2/7.1.2-92/common-assets/img/avatar/avatar.png" class="circle" style="height:25px;width:25px" alt="avatar"></a>
+      <div class="w3-dropdown-content w3-white w3-card-4" style="right:0">
+          <a href="{{=URL('default', 'user', args=['logout'])}}">Log Out</a>
+      </div>
+  </li>
+ </ul>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:51px">
+  <ul class="w3-navbar w3-left-align w3-large w3-theme">
+    <li><a class="w3-padding-large" href="#">Home</a></li>
+    <li><a class="w3-padding-large" href="#">UCSC</a></li>
+    <li><a class="w3-padding-large" href="#">Search</a></li>
+    <li><a class="w3-padding-large" href="profile.html">My Profile</a></li>
+      <!-- Header -->
+<header class="w3-container w3-green w3-center w3-padding-128">
+  <h1 class="w3-margin w3-jumbo">SEARCH</h1>
+         <gcse:search queryParameterName="search"></gcse:search>
+    <!-- Google Custom Search -->
+<!-- end GCS -->
+</header>
+  </ul>
+</div>
+
+<!-- Page Container -->
+<div class="container w3-content" style="max-width:1400px;margin-top:80px">
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+
+      <!-- Accordion -->
+      <div class="w3-card-2 w3-round">
+        <div class="w3-accordion w3-white">
+            <h3 class="w3-center">{{=users}} users are on this page!</h3>
+          <button onclick="myFunction('Demo1')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i>Trends</button>
+          <div id="Demo1" class="w3-accordion-content container">
+            <a class="twitter-timeline" href="https://twitter.com/ucsc">Tweets by ucsc</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+          <button onclick="myFunction('Demo3')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i>Photos</button>
+          <div id="Demo3" class="w3-accordion-content container">
+         <div class="w3-row-padding">
+         <br>
+           <div class="w3-half">
+             <img src="http://img.mota.ru/upload/wallpapers/2010/06/17/16/02/22417/mota_ru_0061847-1920x1080.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="http://www.kolumbokeliones.lt/wp-content/uploads/2016/03/kopenhaga.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="http://www.abc.net.au/cm/lb/6578368/data/shanghai-skyline-at-dusk-data.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="http://admissions.ucsc.edu/apply/counselors/eslug/winter15/images/50th-logo.png?t=0" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="https://www.bestwallpapers-hd.com/web/wallpapers/seoul-south-korea-the-han-river/1920x1080.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="http://time4smart.com/wp-content/uploads/2015/12/seoul-hd-wide.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+         </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+        <div class="submit_tab">
+
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card-2 w3-round w3-white">
+            <div class="container w3-padding">
+              <h6 class="w3-opacity">UC Social - Post Something!</h6>
+                <div class="post_listing">
+                  <div width="400%">{{=form}}</div>
+                  <div class="button_list">
+                    {{for b in button_list:}}
+                      <div class="top_button">{{=b}}</div>
+                    {{pass}}
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+        {{for p in posts:}}
+          <div class="container w3-card-2 w3-white w3-round w3-margin"><br>
+             <img src="http://www.edfilmfest.org.uk/uploads/avatar.jpg" class="w3-circle" style="height:106px;width:106px" alt="Avatar">
+                {{if p.created_on != p.updated_on:}}
+                   <h6 class="w3-text-grey w3-right">Edited {{=p.updated_on}}</h6>
+                {{else:}}
+              <span class="w3-right w3-opacity">{{=p.updated_on}}</span>
+              {{pass}}
+            <h4>{{=g_f_m(p.user_email)}}</h4><br>
+            <hr class="w3-clear">
+            <p>{{=p.post_content}}</p>
+            <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> &nbsp;Like</button>
+            <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom" ahref="#" onclick="$('#com').show(); return false;">
+                <i class="fa fa-comment"></i> &nbsp;Comment</button>
+              <div style="display:none;" id="com">{{=form}}</div>
+            {{if p.user_email == auth.user.email:}}
+              <a href="{{=URL('default', 'edit', args=[p.id])}}" type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-pencil"></i> Edit</a>
+            {{pass}}
+
+
+          </div>
+        {{pass}}
+      <div class="container w3-card-2 w3-white w3-round w3-margin"><br>
+        <img src="https://static1.squarespace.com/static/52f174dde4b08a02b160afe4/t/52f7d3ade4b04cffe232f907/1391973294003/avatar.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">1 min</span>
+        <h4>Justin Chen</h4><br>
+        <hr class="w3-clear">
+        <p>Hey, Seongwoo! This place looks really awesome!</p>
+          <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+              <img src="http://www.deskcar.com/desktop/fengjing/201483225114/1.jpg" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
+            </div>
+            <div class="w3-half">
+              <img src="http://www.kolumbokeliones.lt/wp-content/uploads/2016/03/kopenhaga.jpg" style="width:100%" alt="Nature" class="w3-margin-bottom">
+          </div>
+        </div>
+        <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> &nbsp;Like</button>
+        <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i> &nbsp;Comment</button>
+      </div>
+
+      <div class="container w3-card-2 w3-white w3-round w3-margin"><br>
+        <img src="https://static1.squarespace.com/static/52f174dde4b08a02b160afe4/t/52f7d3ade4b04cffe232f907/1391973294003/avatar.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">16 min</span>
+        <h4>Calvin Lowe</h4><br>
+        <hr class="w3-clear">
+        <p>Today's weather is so fine!</p>
+        <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> &nbsp;Like</button>
+        <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i> &nbsp;Comment</button>
+      </div>
+
+      <div class="container w3-card-2 w3-white w3-round w3-margin"><br>
+        <img src="http://www.newedgescience.com/images/faculty_gen.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">32 min</span>
+        <h4>Susan Kim</h4><br>
+        <hr class="w3-clear">
+        <p>Have you seen this?</p>
+        <img src="http://www.yosemitehikes.com/images/wallpaper/yosemitehikes.com-upper-yosemite-falls-1900x1200.jpg" style="width:100%" class="w3-margin-bottom">
+        <p>I visited Yosemite recently. Isn't this amazing?</p>
+        <button type="button" class="w3-btn w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> &nbsp;Like</button>
+        <button type="button" class="w3-btn w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i> &nbsp;Comment</button>
+      </div>
+
+    <!-- End Middle Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card-2 w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Upcoming Events:</p>
+          <img src="https://s-media-cache-ak0.pinimg.com/736x/46/ba/71/46ba71667b4295b70d65d858f3eaadf9.jpg" alt="Forest" style="width:100%;">
+          <p><strong>Winter 2017 Enrollment Appointment</strong></p>
+          <p>Friday 15:00</p>
+          <p><button href="https://events.ucsc.edu/">Info</button></p>
+        </div>
+      </div>
+      <br>
+
+      <div class="w3-card-2 w3-round w3-white w3-padding-16 w3-center">
+        <p><img src="https://people.ucsc.edu/~scho29/UCSC.png" width="70%"></p>
+      </div>
+      <br>
+
+
+    <!-- End Right Column -->
+    </div>
+
+  <!-- End Grid -->
+  </div>
+
+<!-- End Page Container -->
+</div>
+<br>
+{{else:}}
+  <div class="w3-padding-large">
+        <a href="{{=URL('default', 'user', args=['login'])}}" class="btn btn-warning">Log In</a>
+    </div>
+{{pass}}
+
+<!-- Footer -->
+<footer class="container w3-theme-d3 w3-padding-16">
+  <h5>A SWC and EA Production for UCSC. Class of 2017</h5>
+</footer>
+
+<footer class="container w3-theme-d5">
+  <p>Made by <a href="http://people.ucsc.edu/~scho29" target="_blank">Seongwoo Choi</a>
+    and <a href="http://people.ucsc.edu/~eraander">Erik Andersen</a></p>
+   <p><a href="{{=URL('default', 'aboutus')}}" target="_blank">About Us</a></p>
+</footer>
+
+<script>
+// Accordion
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    } else {
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className =
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
+
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+        (function() {
+            var cx = '013328900167516678688:2zye3rzvzz4';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+        })();
+</script>
+
+
+</body>
+</html>
